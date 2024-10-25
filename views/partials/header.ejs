@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/content.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <title>Rotator Control</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="topnavBefore">
+        <div class="topnav">
+          <a href="/" class="active">
+            <img src="images/logo3.jpg">
+          </a>
+
+          <div id="myLinks">
+            <a href="/"><i class="fa fa-home"></i> Home</a>
+            <a href="/about"><i class="fa fa-info-circle"></i>  About</a>
+            <a href="/contact"><i class="fa fa-envelope"></i> Contact</a>
+          </div>
+          
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+    function myFunction() {
+      var myLinks = document.getElementById("myLinks");
+      
+      // Toggle the display property based on the current state
+      if (myLinks.style.display === "" || myLinks.style.display === "none") {
+        myLinks.style.display = "block"; // Display on narrow screens
+        setTimeout(function() {
+          myLinks.style.right = "0"; // Slide in from the right after display block
+        }, 10); // Delay to ensure display block is applied first
+      } else {
+        myLinks.style.right = "-100%"; // Slide out to the right
+        setTimeout(function() {
+          myLinks.style.display = ""; // Reset display to default (empty string)
+        }, 300); // 
+      }
+    }
+
+    </script>
+
+  </body>
+
+</html>

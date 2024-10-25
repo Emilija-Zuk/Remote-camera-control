@@ -1,0 +1,343 @@
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+body {
+  background-color: whitesmoke;
+  justify-content: center;
+  flex: 1;
+}
+
+#text {
+  text-align: center;
+}
+
+@media (min-width: 1280px) {
+
+  body {
+    background-color: whitesmoke;
+    justify-content: center; 
+    margin: 0 auto; 
+    height: 100%;
+  }
+  .topnavBefore {
+    background-color: #e7e5e5;
+    width: 100vw; /* take up full viewport width */
+    position: relative; 
+    left: 50%; /* Shift left by 50% */
+    transform: translateX(-50%); /* center align */
+    z-index: 1; /* to ensure it's above other elements */ 
+  }
+  .topnav {
+    width: 1280px; 
+    margin: 0 auto; /* center .topnav horizontally */
+    position: relative; 
+    z-index: 2; /* to ensure .topnav is above .topnavBefore */
+  }
+  .main {
+    background-color: whitesmoke;
+    width: 1280px;
+    margin: 0 auto;
+    z-index: 1;
+    flex: 1;
+  }
+  .mainControl {
+    width: 1280px;
+    margin: 0 auto;
+   
+  }
+  .aboutContainer {
+    width: 1280px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    z-index: 1;
+  }
+
+}
+
+/* NAVBAR STYLING */
+/* ########################################################################################################################################################### */
+
+.topnav {
+  height: 60px;
+  background-color: #e7e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.topnav img {
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+.topnav a.active {
+  padding: 0; /* override the padding for the active link */
+  border-radius: 10px;
+}
+
+.topnav a.active img {
+  margin: 0 16px; 
+  border-radius: 10px;
+}
+
+/* Hide the links (except for logo) */
+.topnav #myLinks {
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: #f0eeee;
+  top:60px;
+  right:0;
+  min-width: 120px;
+  text-align: center;
+  right: -100%;
+  transition: right 0.3s ease; 
+}
+
+/* navigation menu links */
+.topnav a {
+  border-radius: 10px;
+  color: rgb(54, 53, 53);
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+}
+
+/* the hamburger */
+.topnav a.icon {
+  border-radius: 10px;
+  background-color: #e7e5e5;
+}
+
+.topnav a:hover {
+  background-color: #eee7e7;
+}
+
+/* ########################################################################################################################################################### */
+
+@media (min-width: 768px) {
+  .topnav a.icon {
+    display: none;
+  }
+  topnav {
+    position: relative;
+  }
+  .topnav #myLinks {
+    display: flex;
+    background-color: #e7e5e5;
+    justify-content: flex-end;
+    position: static;
+  }
+
+  .topnav #myLinks a {
+    display: inline-block;
+  }
+}
+
+/* INDEX STYLING */
+/* ########################################################################################################################################################### */
+.main {
+  position: relative; /* z-index can be applied */
+  flex: 1; /* it makes the main section take the remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto; 
+}
+
+@media (max-width: 1280px){
+  .main {
+    width: 100%;
+    margin: 0 auto; 
+  }
+}
+
+.main::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/logo3.jpg');
+  background-size: 50%;
+  background-position: center;
+  opacity: 0.1; 
+  filter: grayscale(100%) sepia(70%);
+}
+
+@media (max-width: 768px) {
+  .main::after {
+    background-size: 70%; 
+  }
+}
+
+@media (max-width: 480px) {
+  .main::after {
+    background-size: 90%;
+  }
+}
+
+.login-container {
+  margin-top: 20vh; 
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+}
+
+.password {
+  color: black;
+  /* font-weight: 500; */
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid grey;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
+  background-color: white;
+}
+
+.password:focus {
+  border: 2px solid black;
+}
+
+[type="submit"] {
+  width: 60%;
+  background: #121212;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  color: #97AF9D;
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+}
+
+[type="submit"]:hover {
+  background: #275aa7;
+} 
+
+
+/* ABOUT */
+/* ########################################################################################################################################################### */
+
+.aboutContainer {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.profile {
+  max-width: calc(80vw);
+}
+
+p {
+  width: 90%;
+  margin: a;
+}
+
+
+/* CONTACT */
+/* ########################################################################################################################################################### */
+.contactContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.feedback-input {
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid grey;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 80%;
+  box-sizing: border-box;
+  outline: 0;
+  background-color: white;
+}
+
+.feedback-input:focus {
+  border: 2px solid black;
+}
+
+textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+/* FOOTER STYLING */
+/* ########################################################################################################################################################### */
+
+.footer {
+  
+  /* background-color: #e7e5e5; */
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  bottom: 0;
+  
+}
+
+.footer-nav {
+  padding: 0px 0px 0px 0px ;
+}
+
+.footer-item {
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+}
+
+.footer-item a {
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgb(109, 82, 82); /* Text color */
+
+
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  /* display: block; */
+
+}
+
+.footer-item a:hover {
+  background-color: #eee7e7;
+  
+}
+

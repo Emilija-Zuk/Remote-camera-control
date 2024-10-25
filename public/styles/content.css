@@ -1,0 +1,104 @@
+/* CONTROL STYLING CAMERA PAGE*/
+/* ########################################################################################################################################################### */
+
+.mainControl {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cameraContainer {
+  display: flex;
+  max-width: 1280px;
+  height: 100%;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.video-js  {
+  width: 1280px;
+  height: auto;
+  height: min(56.25vw, calc(100vh - 165px)); 
+  max-width: calc((100vh - 165px) * (16 / 9)); 
+  margin: 0 auto; /* center horizontally */
+}
+
+video {
+  border-radius: 5px;
+}
+
+@media (max-width: 1280px) {
+  .cameraContainer {
+    width: 100%;
+  }
+  .video-js  {
+    width: 100%;
+    height: auto;
+    height: min(56.25vw, calc(100vh - 165px)); 
+    max-width: calc((100vh - 165px) * (16 / 9)); 
+    margin: 0 auto; /* center horizontally */
+  }
+}
+
+@media (max-height: 620px) {
+  .mainControl {
+    width: 780px;
+  }  
+  .aboutContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+
+  }
+  .profile{
+    width: 300px;
+  }
+
+  .topnav {
+    max-width: 1000px; 
+    margin: 0 auto;
+  }
+  .main {
+    max-width: 1000px; 
+
+  }
+  .mainControl {
+    max-width: 1000px; 
+    margin: 0 auto;
+   
+  }
+  .topnavBefore {
+    background-color: #e7e5e5;
+    width: 100vw; /* full viewport width */
+ 
+}
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 80%;
+}
+  
+.buttonsContainer button {
+  width: 130px;
+  background: black;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -4px;
+}
+
+.buttonsContainer button:hover {
+    background: #275aa7; 
+}
+  
+  
+  

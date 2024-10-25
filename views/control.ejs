@@ -1,0 +1,70 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <div class="mainControl" >
+    
+    <link href="video-js.min.css" rel="stylesheet">
+
+    <!-- <h1>ANTENNA CONTROL</h1> -->
+
+    <!-- <div class="cameraContainer">
+      <video 
+        id="videoPlayer" 
+        class="video-js vjs-default-skin" 
+        controls 
+        preload="auto" 
+        poster="#" 
+        playsinline 
+        autoplay 
+        muted
+        data-setup='{ "html5": { "nativeControlsForTouch": false } }'>
+        <source src="hls.m3u8" type="application/x-mpegURL">
+      </video>
+    </div> -->
+    
+    <div class="cameraContainer">
+      <video id="videoPlayer" class="video-js" controls preload="none" poster="#" playsinline autoplay loop
+          data-setup='{}'>
+          <source src="hls.m3u8" type="application/x-mpegURL">
+      </video>
+    </div>
+
+    <div class="buttonsContainer">
+      <button id="turnLeftBtn"><i class="fa fa-caret-left"></i> </button>
+      
+      <button id="turnRightBtn"><i class="fa fa-caret-right"></i> </button>
+    </div>
+  </div>
+  <!-- <p id="text" ><%= varA %></p> -->
+  <script src="/socket.io/socket.io.js"></script> 
+  <script src="video.min.js"></script> 
+
+  <script>
+    const socket = io();
+
+    function updateVarA(tsFiles) {
+        const textElement = document.getElementById('text');
+        textElement.textContent = tsFiles.join(', '); // Update UI with new file list
+    }
+    socket.on('updateVarToSend', (tsFiles) => {
+        updateVarA(tsFiles);
+    });
+
+    function sendCommand(command) {
+      socket.emit('command', command);
+    }
+
+    document.getElementById('turnRightBtn').addEventListener('click', () => {
+      sendCommand('turnright');
+      console.log('Turn Right button clicked');
+    });
+    
+    document.getElementById('turnLeftBtn').addEventListener('click', () => {
+      sendCommand('turnleft');
+      console.log('Turn Left button clicked');
+    });
+  </script>
+
+</body>
+
+<%- include("partials/footer.ejs") %>
