@@ -159,7 +159,7 @@ function deleteHLSAndTSFiles() {
           return fs.promises.unlink(filePath);
         }
       }).filter(Boolean); // Filter out undefined entries
-      // Wait for all deletion promises to complete
+      // wait for  deletion promises to complete
       Promise.all(deletionPromises)
         .then(() => {
           console.log("All HLS and TS files deleted.");
@@ -196,10 +196,10 @@ const ffmpegArgs = [
 
 function startFFmpegProcess() {
 
-  // if (ffmpegProcess) {
-  //   ffmpegProcess.kill();
-  //   deleteHLSAndTSFiles()
-  // }
+  if (ffmpegProcess) {
+    ffmpegProcess.kill();
+    deleteHLSAndTSFiles()
+  }
 
   ffmpegProcess = spawn('ffmpeg', ffmpegArgs);
 
